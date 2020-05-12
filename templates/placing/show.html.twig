@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Placing{% endblock %}
+
+{% block body %}
+    <h1>Placing</h1>
+
+    <table class="table">
+        <tbody>
+
+            <tr>
+                <th>Id</th>
+                <td>{{ placing.id }}</td>
+            </tr>
+            <tr>
+                <th>User</th>
+                <td>{{ placing.User }}</td>
+            </tr>
+            <tr>
+                <th>Nr1</th>
+                <td>{{ placing.Nr1 }}</td>
+            </tr>
+            <tr>
+                <th>Nr2</th>
+                <td>{{ placing.Nr2 }}</td>
+            </tr>
+            <tr>
+                <th>Nr3</th>
+                <td>{{ placing.Nr3 }}</td>
+            </tr>
+            <tr>
+                <th>Nr4</th>
+                <td>{{ placing.Nr4 }}</td>
+            </tr>
+
+                <button>
+                    <p>Check</p>
+                </button>
+
+        </tbody>
+    </table>
+
+    <a href="{{ path('placing_index') }}">back to list</a>
+
+    <a href="{{ path('placing_edit', {'id': placing.id}) }}">edit</a>
+
+    {{ include('placing/_delete_form.html.twig') }}
+{% endblock %}
