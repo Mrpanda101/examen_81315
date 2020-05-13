@@ -20,6 +20,8 @@ class PlacingController extends AbstractController
      */
     public function index(PlacingRepository $placingRepository): Response
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+
         return $this->render('placing/index.html.twig', [
             'placings' => $placingRepository->findAll(),
         ]);

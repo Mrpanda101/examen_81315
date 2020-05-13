@@ -14,11 +14,15 @@
 
 
     <h1>Register</h1>
+    {% if app.user.username == 'Admin' %}
+        {{ form_start(registrationForm) }}
+            {{ form_row(registrationForm.Username) }}
+            {{ form_row(registrationForm.plainPassword) }}
 
-    {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.Username) }}
-        {{ form_row(registrationForm.plainPassword) }}
-
-        <button type="submit" class="btn">Register</button>
-    {{ form_end(registrationForm) }}
+            <button type="submit" class="btn">Register</button>
+        {{ form_end(registrationForm) }}
+    {% endif %}
+    <div class="mb-3">
+        <a href="{{ path('placing_index') }}">Main Page</a>
+    </div>
 {% endblock %}

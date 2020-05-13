@@ -20,7 +20,9 @@
     <table class="table">
         <thead>
             <tr>
+                {% if app.user.username == 'Admin' %}
                 <th>Id</th>
+                {% endif %}
                 <th>User</th>
                 <th>Nr1</th>
                 <th>Nr2</th>
@@ -33,7 +35,9 @@
         <tbody>
         {% for placing in placings %}
             <tr>
+                {% if app.user.username == 'Admin' %}
                 <td>{{ placing.id }}</td>
+                {% endif %}
                 <td>{{ placing.User }}</td>
                 <td>{{ placing.Nr1 }}</td>
                 <td>{{ placing.Nr2 }}</td>
@@ -41,6 +45,7 @@
                 <td>{{ placing.Nr4 }}</td>
                 <td><p>0</p></td>
                 <td>
+                    {% if app.user.username == 'Admin' %}
                     <button><a href="{{ path('placing_show', {'id': placing.id}) }}">check</a></button>
                     {# Using form to formulate and getting the info for Delete #}
                     <form method="post" action="{{ path('placing_delete', {'id': placing.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
@@ -48,6 +53,7 @@
                         <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ placing.id) }}">
                         <button class="btn">Delete</button>
                     </form>
+                    {% endif %}
                 </td>
             </tr>
         {% else %}
