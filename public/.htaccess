@@ -12,7 +12,7 @@ DirectoryIndex​ index.php
 
    ​RewriteCond​ ​%{HTTP:Authorization}​ .+
    RewriteRule​ ^ -​ [E=HTTP_AUTHORIZATION:%0]
-   
+
    ​RewriteCond​ ​%{ENV:REDIRECT_STATUS}​ =​""
 ​   RewriteRule​ ^index\.php(?:/(.*)|$) ​%{ENV:BASE}​/​$1​ [R=301,L]
 
